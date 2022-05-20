@@ -1,7 +1,10 @@
 package com.softtek.controlador;
 
+import java.net.URI;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +16,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.softtek.dto.ConsultaDTO;
+import com.softtek.exception.ModeloNotFoundException;
 import com.softtek.modelo.Consulta;
 import com.softtek.servicio.IConsultaServicio;
 
@@ -24,28 +30,50 @@ public class ConsultaControlador {
 	@Autowired
 	private IConsultaServicio servicio;
 	
+	@Autowired
+	private ModelMapper mapper;
+	
 	@GetMapping
-	public ResponseEntity<List<Consulta>> listar() throws Exception{
-		return new ResponseEntity<>(servicio.listar(), HttpStatus.OK);
+	public ResponseEntity<List<ConsultaDTO>> listar() throws Exception{
+		List<ConsultaDTO> lista = servicio.listar().stream().map(x->mapper.map(x, ConsultaDTO.class)).collect(Collectors.toList());
+		return new ResponseEntity<>(lista, HttpStatus.OK);
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Consulta> listarPorId(@PathVariable("id") Integer id) throws Exception {
-		return new ResponseEntity<>(servicio.listarPorId(id), HttpStatus.OK);
+	public ResponseEntity<ConsultaDTO> listarPorId(@PathVariable("id") Integer id) throws Exception {
+		Consulta consulta = servicio.listarPorId(id);
+		if(consulta == null) {
+			throw new ModeloNotFoundException("ID NO ENCONTRADO "+id);
+		}
+		ConsultaDTO dtoResponse = mapper.map(consulta, ConsultaDTO.class);
+		return new ResponseEntity<>(dtoResponse, HttpStatus.OK);
 	}
 	
 	@PostMapping
-	public ResponseEntity<Consulta> registrar(@RequestBody Consulta c) throws Exception{
-		return new ResponseEntity<>(servicio.registrar(c), HttpStatus.CREATED);
+	public ResponseEntity<ConsultaDTO> registrar(@RequestBody ConsultaDTO c) throws Exception{
+		Consulta objeto = mapper.map(c, Consulta.class);
+		ConsultaDTO dtoResponse = mapper.map(servicio.registrar(objeto), ConsultaDTO.class);
+		
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(dtoResponse.getIdConsulta()).toUri();
+		return ResponseEntity.created(location).build();
 	}
 	
 	@PutMapping
-	public ResponseEntity<Consulta> modificar(@RequestBody Consulta c) throws Exception{
-		return new ResponseEntity<>(servicio.modificar(c), HttpStatus.OK);
+	public ResponseEntity<ConsultaDTO> modificar(@RequestBody ConsultaDTO c) throws Exception{
+		Consulta consultaRequest = mapper.map(c, Consulta.class);
+		Consulta consultaConsultado = servicio.listarPorId(consultaRequest.getIdConsulta());
+		if(consultaConsultado == null) {
+			throw new ModeloNotFoundException("ID NO ENCONTRADO "+consultaRequest.getIdConsulta());
+		}
+		return new ResponseEntity<>(mapper.map(servicio.modificar(consultaRequest), ConsultaDTO.class), HttpStatus.OK);
 	}
 	
 	@DeleteMapping("{id}")
 	public ResponseEntity<Void> eliminar(@PathVariable Integer id) throws Exception{
+		Consulta objeto = servicio.listarPorId(id);
+		if(objeto == null) {
+			throw new ModeloNotFoundException("ID NO ENCONTRADO " + id);
+		}
 		servicio.eliminar(id);
 		return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 	}

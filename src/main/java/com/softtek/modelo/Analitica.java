@@ -32,12 +32,12 @@ public class Analitica {
 		this.nombre = nombre;
 	}
 
-	public Integer getIdEspecialidad() {
+	public Integer getIdAnalitica() {
 		return idAnalitica;
 	}
 
-	public void setIdEspecialidad(Integer idEspecialidad) {
-		this.idAnalitica = idEspecialidad;
+	public void setIdAnalitica(Integer idAnalitica) {
+		this.idAnalitica = idAnalitica;
 	}
 
 	public String getDescripcion() {
