@@ -10,14 +10,14 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "Analiticas")
 public class Analitica {
-
+//Soy Musta
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idAnalitica;
-	
+
 	@Column(name = "descripcion", nullable = false, length = 50)
 	private String descripcion;
-	
+
 	@Column(name = "nombre", nullable = false, length = 50)
 	private String nombre;
 
@@ -58,8 +58,7 @@ public class Analitica {
 
 	@Override
 	public String toString() {
-		return "Analitica [idEspecialidad=" + idAnalitica + ", descripcion=" + descripcion + ", nombre=" + nombre
-				+ "]";
+		return "Analitica [idEspecialidad=" + idAnalitica + ", descripcion=" + descripcion + ", nombre=" + nombre + "]";
 	}
-	
+
 }
