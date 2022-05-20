@@ -6,9 +6,10 @@ import org.springframework.stereotype.Service;
 
 import com.softtek.modelo.Usuario;
 import com.softtek.repo.IUsuarioRepo;
+import com.softtek.servicio.IUsuarioServicio;
 
 @Service
-public class UsuarioServicioImp extends CRUDImp<Usuario,Integer>{
+public class UsuarioServicioImp extends CRUDImp<Usuario,Integer> implements IUsuarioServicio{
 
 	@Autowired
 	private IUsuarioRepo repo;

@@ -12,18 +12,23 @@ public class PacienteDTO {
 	@Size(min=3, message="{apellidos.size}")
 	private String nombres;
 	
+	@NotNull
 	@Size(min=4)
 	private String apellidos;
 	
+	@NotNull
 	@Size(min= 8)
 	private String dni;
 	
+	@NotNull
 	@Size(min=9, max=150)
 	private String direccion;
 	
+	@NotNull
 	@Size(min = 9, max=9)
 	private String telefono;
 	
+	@NotNull
 	@Email
 	private String email;
 	
@@ -72,6 +77,12 @@ public class PacienteDTO {
 	
 	public PacienteDTO() {
 		super();
+	}
+	
+	@Override
+	public String toString() {
+		return "PacienteDTO [idPaciente=" + idPaciente + ", nombres=" + nombres + ", apellidos=" + apellidos + ", dni="
+				+ dni + ", direccion=" + direccion + ", telefono=" + telefono + ", email=" + email + "]";
 	}
 
 }

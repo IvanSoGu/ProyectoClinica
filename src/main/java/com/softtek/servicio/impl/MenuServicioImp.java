@@ -6,9 +6,10 @@ import org.springframework.stereotype.Service;
 
 import com.softtek.modelo.Menu;
 import com.softtek.repo.IMenuRepo;
+import com.softtek.servicio.IMenuServicio;
 
 @Service
-public class MenuServicioImp extends CRUDImp<Menu, Integer>{
+public class MenuServicioImp extends CRUDImp<Menu, Integer> implements IMenuServicio{
 
 	@Autowired
 	private IMenuRepo repo;
