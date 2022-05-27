@@ -18,10 +18,10 @@ public class Medico {
 	@Column(name ="apellidos", nullable = false, length = 70)
 	private String apellidos;
 	
-	@Column(name ="cedula", nullable = false, length = 12)
+	@Column(name ="cedula", nullable = false, length = 12,  unique=true)
 	private String cedula;
 	
-	@Column(name ="fotoUrl", nullable = true, length = 255)
+	@Column(name ="fotoUrl", nullable = false, length = 255)
 	private String fotoUrl;
 	
 	@Column(name ="nombres", nullable = false, length = 70)

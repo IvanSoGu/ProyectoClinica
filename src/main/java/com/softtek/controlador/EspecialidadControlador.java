@@ -27,7 +27,7 @@ import com.softtek.servicio.IEspecialidadServicio;
 @RestController
 @RequestMapping("/especialidades")
 @CrossOrigin(origins="http://localhost:4200")
-public class EspecialidadContolador {
+public class EspecialidadControlador {
 
 	@Autowired
 	private IEspecialidadServicio servicio;

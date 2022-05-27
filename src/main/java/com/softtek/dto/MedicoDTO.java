@@ -8,13 +8,14 @@ public class MedicoDTO {
 	private Integer idMedico;
 	
 	@NotNull
-	@Size(max=150)
+	@Size(max=70)
 	private String apellidos;
 	
 	@NotNull
 	@Size(min = 12, max=12)
 	private String cedula;
 	
+	@NotNull
 	@Size(max=255)
 	private String fotoUrl;
 	
