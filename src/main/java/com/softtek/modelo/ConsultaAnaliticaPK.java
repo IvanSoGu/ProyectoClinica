@@ -10,69 +10,69 @@ import javax.persistence.ManyToOne;
 @Embeddable
 public class ConsultaAnaliticaPK implements Serializable{
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-	
-	@ManyToOne
-	@JoinColumn( name = "id_consulta", nullable = false)
-	private Consulta consulta;
-	
-	@ManyToOne
-	@JoinColumn( name = "id_analitica", nullable = false)
-	private Analitica analitica;
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
 
-	public ConsultaAnaliticaPK() {
-		super();
-	}
+    @ManyToOne
+    @JoinColumn( name = "id_consulta", nullable = false)
+    private Consulta consulta;
 
-	public ConsultaAnaliticaPK(Consulta consulta, Analitica analitica) {
-		super();
-		this.consulta = consulta;
-		this.analitica = analitica;
-	}
+    @ManyToOne
+    @JoinColumn( name = "id_analitica", nullable = false)
+    private Analitica analitica;
 
-	public Consulta getConsulta() {
-		return consulta;
-	}
+    public ConsultaAnaliticaPK() {
+        super();
+    }
 
-	public void setConsulta(Consulta consulta) {
-		this.consulta = consulta;
-	}
+    public ConsultaAnaliticaPK(Consulta consulta, Analitica analitica) {
+        super();
+        this.consulta = consulta;
+        this.analitica = analitica;
+    }
 
-	public Analitica getAnalitica() {
-		return analitica;
-	}
+    public Consulta getConsulta() {
+        return consulta;
+    }
 
-	public void setAnalitica(Analitica analitica) {
-		this.analitica = analitica;
-	}
+    public void setConsulta(Consulta consulta) {
+        this.consulta = consulta;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public Analitica getAnalitica() {
+        return analitica;
+    }
 
-	@Override
-	public String toString() {
-		return "ConsultaAnaliticaPK [consulta=" + consulta + ", analitica=" + analitica + "]";
-	}
-	
-	@Override
-	public int hashCode() {
-		return Objects.hash(consulta, analitica);
-	}
-	
-	@Override
-	public boolean equals(Object o) {
-		if (this==o)
-			return true;
-		if (o==null)
-			return false;
-		if(getClass() != o.getClass())
-			return false;
-		ConsultaAnaliticaPK other = (ConsultaAnaliticaPK)o;
-		return Objects.equals(consulta, other.consulta) && Objects.equals(analitica,  other.analitica);
-	}
-	
+    public void setAnalitica(Analitica analitica) {
+        this.analitica = analitica;
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+
+    @Override
+    public String toString() {
+        return "ConsultaAnaliticaPK [consulta=" + consulta + ", analitica=" + analitica + "]";
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(consulta, analitica);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this==o)
+            return true;
+        if (o==null)
+            return false;
+        if(getClass() != o.getClass())
+            return false;
+        ConsultaAnaliticaPK other = (ConsultaAnaliticaPK)o;
+        return Objects.equals(consulta, other.consulta) && Objects.equals(analitica,  other.analitica);
+    }
+
 }

@@ -11,54 +11,54 @@ import javax.persistence.Table;
 @Table(name = "Analiticas")
 public class Analitica {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer idAnalitica;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer idAnalitica;
 
-	@Column(name = "descripcion", nullable = false, length = 50)
-	private String descripcion;
+    @Column(name = "descripcion", nullable = false, length = 50)
+    private String descripcion;
 
-	@Column(name = "nombre", nullable = false, length = 50)
-	private String nombre;
+    @Column(name = "nombre", nullable = false, length = 50)
+    private String nombre;
 
-	public Analitica() {
-		super();
-	}
+    public Analitica() {
+        super();
+    }
 
-	public Analitica(Integer idAnalitica, String descripcion, String nombre) {
-		super();
-		this.idAnalitica = idAnalitica;
-		this.descripcion = descripcion;
-		this.nombre = nombre;
-	}
+    public Analitica(Integer idAnalitica, String descripcion, String nombre) {
+        super();
+        this.idAnalitica = idAnalitica;
+        this.descripcion = descripcion;
+        this.nombre = nombre;
+    }
 
-	public Integer getIdAnalitica() {
-		return idAnalitica;
-	}
+    public Integer getIdAnalitica() {
+        return idAnalitica;
+    }
 
-	public void setIdAnalitica(Integer idAnalitica) {
-		this.idAnalitica = idAnalitica;
-	}
+    public void setIdAnalitica(Integer idAnalitica) {
+        this.idAnalitica = idAnalitica;
+    }
 
-	public String getDescripcion() {
-		return descripcion;
-	}
+    public String getDescripcion() {
+        return descripcion;
+    }
 
-	public void setDescripcion(String descripcion) {
-		this.descripcion = descripcion;
-	}
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
-	public String getNombre() {
-		return nombre;
-	}
+    public String getNombre() {
+        return nombre;
+    }
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-	@Override
-	public String toString() {
-		return "Analitica [idEspecialidad=" + idAnalitica + ", descripcion=" + descripcion + ", nombre=" + nombre + "]";
-	}
+    @Override
+    public String toString() {
+        return "Analitica [idEspecialidad=" + idAnalitica + ", descripcion=" + descripcion + ", nombre=" + nombre + "]";
+    }
 
 }

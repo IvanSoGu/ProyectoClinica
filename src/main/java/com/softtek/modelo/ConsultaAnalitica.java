@@ -11,42 +11,42 @@ import javax.persistence.Table;
 public class ConsultaAnalitica {
 
     @Id
-	private Consulta consulta;
-    
+    private Consulta consulta;
+
     @Id
     private Analitica analitica;
 
-	public ConsultaAnalitica() {
-		super();
-	}
+    public ConsultaAnalitica() {
+        super();
+    }
 
-	public ConsultaAnalitica(Consulta consulta, Analitica analitica) {
-		super();
-		this.consulta = consulta;
-		this.analitica = analitica;
-	}
+    public ConsultaAnalitica(Consulta consulta, Analitica analitica) {
+        super();
+        this.consulta = consulta;
+        this.analitica = analitica;
+    }
 
-	public Consulta getConsulta() {
-		return consulta;
-	}
+    public Consulta getConsulta() {
+        return consulta;
+    }
 
-	public void setConsulta(Consulta consulta) {
-		this.consulta = consulta;
-	}
+    public void setConsulta(Consulta consulta) {
+        this.consulta = consulta;
+    }
 
-	public Analitica getAnalitica() {
-		return analitica;
-	}
+    public Analitica getAnalitica() {
+        return analitica;
+    }
 
-	public void setAnalitica(Analitica analitica) {
-		this.analitica = analitica;
-	}
+    public void setAnalitica(Analitica analitica) {
+        this.analitica = analitica;
+    }
 
-	@Override
-	public String toString() {
-		return "ConsultaAnalitica [consulta=" + consulta + ", analitica=" + analitica + "]";
-	}
-    
-    
-    
+    @Override
+    public String toString() {
+        return "ConsultaAnalitica [consulta=" + consulta + ", analitica=" + analitica + "]";
+    }
+
+
+
 }
