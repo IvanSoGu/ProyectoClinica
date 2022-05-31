@@ -1,5 +1,7 @@
 package com.softtek.servicio.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
@@ -17,6 +19,12 @@ public class MenuServicioImp extends CRUDImp<Menu, Integer> implements IMenuServ
 	@Override
 	protected JpaRepository<Menu, Integer> getRepo() {
 		return repo;
+	}
+
+	@Override
+	public List<Menu> listarMenuPorUsuario(String nombre) {
+		
+		return repo.listarMenuPorUsuario(nombre);
 	}
 
 }
