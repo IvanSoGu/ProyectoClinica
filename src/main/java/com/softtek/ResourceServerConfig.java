@@ -34,6 +34,19 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
                 .authorizeRequests()                  
                 .antMatchers("/v2/api-docs/**" ).permitAll()
                 .antMatchers("/v3/api-docs/**" ).permitAll()
+                .antMatchers("/consultas/**" ).permitAll()              
+                .antMatchers("/especialidades/**" ).permitAll()
+                .antMatchers("/analiticas/**" ).permitAll()
+                .antMatchers("/medicos/**" ).permitAll()
+                .antMatchers("/menus/**" ).authenticated()
+                .antMatchers("/tokens/anular/**" ).permitAll()
+                .antMatchers("/tokens/**" ).authenticated()                
+                .antMatchers("/consultaexamenes/**" ).permitAll()
+                .antMatchers("/pacientes/**" ).permitAll();     
+                
+                /*
+                .antMatchers("/v2/api-docs/**" ).permitAll()
+                .antMatchers("/v3/api-docs/**" ).permitAll()
                 .antMatchers("/consultas/**" ).authenticated()                
                 .antMatchers("/especialidades/**" ).permitAll()
                 .antMatchers("/analiticas/**" ).permitAll()
@@ -43,6 +56,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter{
                 .antMatchers("/tokens/**" ).authenticated()                
                 .antMatchers("/consultaexamenes/**" ).authenticated()
                 .antMatchers("/pacientes/**" ).permitAll();                
+                */
 
     }    
  

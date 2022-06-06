@@ -1,43 +1,90 @@
 package com.softtek.dto;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 import javax.validation.constraints.NotNull;
 
 public class ConsultaDTO {
+	 
+    private Integer idConsulta;
+    @NotNull
+    private PacienteDTO paciente;
+    @NotNull
+    private MedicoDTO medico;
+    @NotNull
+    private EspecialidadDTO especialidad;
+    @NotNull
+    private String numConsultorio;
+ 
+//    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy")
+    @NotNull
+    private LocalDateTime fecha;
 
     @NotNull
-    private String fecha;
-    @NotNull
-    private Integer cantidad;
-
-    public ConsultaDTO(@NotNull @NotNull String fecha, @NotNull Integer cantidad) {
-        super();
-        this.fecha = fecha;
-        this.cantidad = cantidad;
+    private List<DetalleConsultaDTO> detalleConsulta;
+ 
+    public Integer getIdConsulta() {
+        return idConsulta;
     }
-
-    public ConsultaDTO() {
-        // TODO Auto-generated constructor stub
+ 
+    public void setIdConsulta(Integer idConsulta) {
+        this.idConsulta = idConsulta;
     }
-
-    public String getFecha() {
+ 
+    public PacienteDTO getPaciente() {
+        return paciente;
+    }
+ 
+    public void setPaciente(PacienteDTO paciente) {
+        this.paciente = paciente;
+    }
+ 
+    public MedicoDTO getMedico() {
+        return medico;
+    }
+ 
+    public void setMedico(MedicoDTO medico) {
+        this.medico = medico;
+    }
+ 
+    public EspecialidadDTO getEspecialidad() {
+        return especialidad;
+    }
+ 
+    public void setEspecialidad(EspecialidadDTO especialidad) {
+        this.especialidad = especialidad;
+    }
+ 
+    public String getNumConsultorio() {
+        return numConsultorio;
+    }
+ 
+    public void setNumConsultorio(String numConsultorio) {
+        this.numConsultorio = numConsultorio;
+    }
+ 
+    public LocalDateTime getFecha() {
         return fecha;
     }
-
-    public void setFecha(String fecha) {
+ 
+    public void setFecha(LocalDateTime fecha) {
         this.fecha = fecha;
     }
-
-    public Integer getCantidad() {
-        return cantidad;
+ 
+    public List<DetalleConsultaDTO> getDetalleConsulta() {
+        return detalleConsulta;
     }
-
-    public void setCantidad(Integer cantidad) {
-        this.cantidad = cantidad;
+ 
+    public void setDetalleConsulta(List<DetalleConsultaDTO> detalleConsulta) {
+        this.detalleConsulta = detalleConsulta;
     }
-
+ 
     @Override
     public String toString() {
-        return "ConsultaDTO [fecha=" + fecha + ", cantidad=" + cantidad + "]";
+        return "ConsultaDTO [idConsulta=" + idConsulta + ", paciente=" + paciente + ", medico=" + medico
+                + ", especialidad=" + especialidad + ", numConsultorio=" + numConsultorio + ", fecha=" + fecha
+                + ", detalleConsulta=" + detalleConsulta + "]";
     }
-
+ 
 }
