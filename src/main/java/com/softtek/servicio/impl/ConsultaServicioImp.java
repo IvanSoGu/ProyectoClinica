@@ -78,7 +78,7 @@ public class ConsultaServicioImp extends CRUDImp<Consulta, Integer> implements I
  
         Map<String, Object> parametros = new HashMap<>();
         parametros.put("txt_titulo", "Resumen Consulta por fecha");
- 
+
         File file;
         try {
             file = new ClassPathResource("/informes/consultas.jasper").getFile();
@@ -88,7 +88,6 @@ public class ConsultaServicioImp extends CRUDImp<Consulta, Integer> implements I
         } catch (Exception e) {
             e.printStackTrace();
         }
- 
         return data;
     }
 
