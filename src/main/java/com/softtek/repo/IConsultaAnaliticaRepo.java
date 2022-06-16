@@ -11,16 +11,14 @@ import com.softtek.modelo.ConsultaAnalitica;
 
 public interface IConsultaAnaliticaRepo extends JpaRepository<ConsultaAnalitica, Integer>{
 	 
-    //@Transactional
     @Modifying
     @Query(value = "INSERT INTO consulta_analitica(id_consulta, id_analitica) VALUES (:idConsulta, :idAnalitica)", nativeQuery = true)
     Integer registrar(@Param("idConsulta") Integer idConsulta, @Param("idAnalitica") Integer idAnalitica);
 
     @Query("FROM ConsultaAnalitica ce where ce.consulta.idConsulta = :idConsulta")
     List<ConsultaAnalitica> listarAnaliticasPorConsulta(@Param("idConsulta") Integer idconsulta);
-    //[consulta, examen]
-    //[consulta, examen]
-    //[consulta, examen]
+    //[consulta, analitica]
+    //[consulta, analitica]
+    //[consulta, analitica]
  
-
 }

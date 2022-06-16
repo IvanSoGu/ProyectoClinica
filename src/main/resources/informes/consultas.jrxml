@@ -59,15 +59,15 @@
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="39">
+		<band height="51">
 			<textField>
-				<reportElement stretchType="ElementGroupHeight" x="0" y="0" width="100" height="30" uuid="d65940f3-630b-47c3-a285-5c16097f681b">
+				<reportElement stretchType="ElementGroupHeight" x="0" y="10" width="100" height="30" uuid="d65940f3-630b-47c3-a285-5c16097f681b">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="14c4867d-171e-4a4d-99a6-68a5c3198f7e"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="120" y="0" width="100" height="30" uuid="a270885c-014b-4f41-beae-4ee25c2b0b59">
+				<reportElement x="120" y="10" width="100" height="30" uuid="a270885c-014b-4f41-beae-4ee25c2b0b59">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="5b6ca9ae-876c-455e-a3a9-4cf4c3b4604a"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>

@@ -10,6 +10,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "rol")
 public class Rol {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idRol;
@@ -42,6 +43,17 @@ public class Rol {
 	}
 
 	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
+	public Rol() {
+		super();
+	}
+
+	public Rol(Integer idRol, String descripcion, String nombre) {
+		super();
+		this.idRol = idRol;
+		this.descripcion = descripcion;
 		this.nombre = nombre;
 	}
 
